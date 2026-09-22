@@ -1,0 +1,27 @@
+# Keep this portfolio repository free of private application material.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*secret*.json
+*credentials*.json
+client_secret*.json
+
+# Never commit raw client captures or exports.
+assets/screenshots/raw/
+assets/screenshots/private/
+exports/
+backups/
+*.sql
+*.sqlite
+*.sqlite3
+
+# Local/editor files.
+.visual-check/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
