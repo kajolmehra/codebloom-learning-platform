@@ -18,7 +18,7 @@ The current SVGs are fictional UI reconstructions, and the PNGs are high-fidelit
 | --- | --- |
 | `05-operations-dashboard.png` | Senior operations dashboard, KPI cards, global search, and demo funnel |
 | `06-showcase-results.png` | Voting state, moderation KPIs, ranked results, award controls, and exports |
-| `07-demo-bookings-conversion.png` | Booking funnel, conversion/attendance rates, filters, statuses, and next actions |
+| Contact/demo-booking capture | Publish only after all contact values are replaced with clearly fictional placeholders; none is currently included |
 
 ## Capture standard
 

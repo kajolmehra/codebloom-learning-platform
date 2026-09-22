@@ -49,7 +49,7 @@ Verified votes, moderation states, ranked projects, award controls, and export-r
 
 ### Demo-booking conversion
 
-[Open the demo-booking conversion reconstruction](assets/screenshots/07-demo-bookings-conversion.png)
+The demo-booking conversion capture is intentionally excluded from this public package until every contact value is replaced with a clearly fictional placeholder.
 
 The workflow tracks requests through booked, scheduled, attended, follow-up, converted, cancelled, and no-show states.
 
