@@ -4,7 +4,7 @@
 
 The platform serves three audiences with different interaction patterns:
 
-- Families and students use a responsive public experience for discovery, enrollment, bookings, portal services, and showcases.
+- Visitors, families, and students use a responsive public experience for discovery, enrollment, bookings, and showcases.
 - Teachers use a protected workspace optimized for recurring class operations.
 - Administrators use a server-rendered console for broad content and operational management.
 
@@ -63,7 +63,7 @@ Bookings, enrollments, votes, and submissions retain explicit statuses. This sup
 
 | Concern | Approach |
 | --- | --- |
-| Authentication | Separate role-aware entry points for admins, teachers, and parents |
+| Authentication | Separate role-aware entry points for admins, teachers, and public users |
 | Abuse prevention | Rate limits on public submissions, authentication, and voting |
 | Verification | Email/code verification for registration, reset, and showcase workflows |
 | Content publishing | Draft/publish controls and centrally managed page content |

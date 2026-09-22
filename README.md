@@ -12,13 +12,13 @@
 
 ## Overview
 
-CodeBloom combines a public learning website, teacher workspace, and administrative operations console in one Laravel application. The platform supports program discovery, enrollment, scheduling, demo-booking conversion, content management, student showcases, verified voting, moderation, and operational reporting.
+CodeBloom combines a public React learning website, a React teacher workspace, Laravel APIs, and a Laravel administrative console. The platform supports program discovery, enrollment, scheduling, demo-booking conversion, content management, student showcases, verified voting, moderation, and operational reporting.
 
 This public repository is a privacy-safe portfolio case study. The production source, client identity, credentials, customer records, and proprietary media remain private.
 
 ## My role
 
-Full-stack architecture and delivery across the public experience, React teacher workspace, Laravel APIs, Blade admin console, database workflows, email automation, security controls, and automated tests.
+Full-stack architecture and delivery across the React public experience, React teacher workspace, Laravel APIs, Laravel admin console, database workflows, email automation, security controls, and automated tests.
 
 ## Product surface
 
@@ -67,16 +67,44 @@ The workflow tracks requests through booked, scheduled, attended, follow-up, con
 | Quality | PHPUnit feature/unit tests, Vitest, Testing Library, and TypeScript checks |
 | Delivery | Vite builds, responsive UI, SEO metadata, sitemap/robots support, and environment-based configuration |
 
-## Architecture
+## Education operations flow
+
+CodeBloom separates customer-facing React experiences from the Laravel business layer. The same Laravel domain services and API contracts drive enrollment, teacher operations, showcases, email automation, and the Laravel admin console.
+
+```mermaid
+flowchart TB
+    Visitor[Visitor] --> Website[Public React website]
+    Website --> Browse[Browse programs, schedules, instructors, and showcases]
+    Browse --> Enrol[Select class and submit enrollment]
+    Enrol --> API[Laravel API]
+    API --> Validate[Validate consent, availability, and request data]
+    Validate -->|Valid| Enrollment[(Enrollment / booking record)]
+    Validate -->|Needs changes| Website
+    Enrollment --> Queue[Operational review queue]
+    Queue --> Admin[Laravel admin console]
+    Admin --> Decision{Approve, schedule, or request follow-up}
+    Decision -->|Approved| Notify[Send confirmation and next steps]
+    Decision -->|Follow-up| FollowUp[Create task or demo follow-up]
+    Notify --> Teacher[React teacher workspace]
+    Teacher --> ClassOps[Attendance, notes, and progress updates]
+    ClassOps --> API
+    Enrollment --> Showcase[React showcase and voting experience]
+    Showcase --> Verify[Laravel verification and moderation API]
+    Verify --> Results[Publish approved results and awards]
+```
+
+## Technical boundary
 
 ```mermaid
 flowchart LR
-    Public[Public React experience] --> API[Laravel API and application]
+    Public[React public website] --> API[Laravel REST APIs]
     Teacher[React teacher workspace] --> API
-    Admin[Blade admin console] --> API
-    API --> DB[(Relational database)]
-    API --> Media[Public and protected media]
-    API --> Mail[Transactional email]
+    Admin[Laravel admin console] --> Core[Laravel application services]
+    API --> Core
+    Core --> DB[(Relational database)]
+    Core --> Media[Public and protected media]
+    Core --> Mail[Transactional email]
+    Core --> Jobs[Queued jobs and notifications]
 ```
 
 Detailed documentation:
@@ -101,4 +129,3 @@ Suggested topics:
 `laravel` `php` `react` `typescript` `rest-api` `eloquent` `admin-dashboard` `crm` `booking-system` `email-automation` `full-stack` `case-study`
 
 See [docs/GITHUB-SETUP.md](docs/GITHUB-SETUP.md) for the recommended repository presentation checklist.
-
